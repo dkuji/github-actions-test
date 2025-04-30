@@ -16,9 +16,9 @@ jobs:
       - id: step2
         run: echo "test=world" >> "$GITHUB_OUTPUT"
       - id: step3
-        run: echo "::set-output name=test::$(date +"%Y%m%d%H%M%S%6N")-$(git rev-parse --short HEAD)"
+        run: echo "::set-output name=test::$(date +\"%Y%m%d%H%M%S%6N\")-$(git rev-parse --short HEAD)"
       - id: step4
-        run: echo "test=$(date +"%Y%m%d%H%M%S%6N")-$(git rev-parse --short HEAD) >> $GITHUB_OUTPUT"
+        run: echo "test=$(date +\"%Y%m%d%H%M%S%6N\")-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
   job2:
     runs-on: ubuntu-latest
