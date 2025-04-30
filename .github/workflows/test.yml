@@ -1,7 +1,6 @@
 name: test worlflow
 
-on:
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 
 jobs:
   job1:
