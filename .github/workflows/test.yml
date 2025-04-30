@@ -11,6 +11,8 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
       output4: ${{ steps.step4.outputs.test }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - id: step1
         run: echo "test=hello" >> "$GITHUB_OUTPUT"
       - id: step2
@@ -18,7 +20,7 @@ jobs:
       - id: step3
         run: echo "::set-output name=test::$(date +\"%Y%m%d%H%M%S%6N\")-$(git rev-parse --short HEAD)"
       - id: step4
-        run: echo "test=$(date +\"%Y%m%d%H%M%S%6N\")-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+        run: echo "test=$(date +%Y%m%d%H%M%S%6N)-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
   job2:
     runs-on: ubuntu-latest
